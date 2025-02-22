@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" maxlength="1"  class="enterOtp" id="1">
+    <input type="text" maxlength="1"  class="enterOtp" id="2">
+    <input type="text" maxlength="1"  class="enterOtp" id="3">
+    <input type="text" maxlength="1"  class="enterOtp" id="4">
+    <input type="text" maxlength="1"  class="enterOtp" id="5">
+    <input type="text" maxlength="1"  class="enterOtp" id="6"><button id="verifyOtp" onclick="verifyOtp();">Verify</button>
+    <script>
+        const otpArray=new Array(6);
+        const enteredOtpArray=new Array(6);
+        const enteredOtp=document.querySelectorAll(".enterOtp");
+        let otpVerifyBtn=document.getElementById("verifyOtp");
+        // let otpPrint=document.getElementById(y);
+        enteredOtp.forEach(enteredOtp=> {
+            enteredOtp.addEventListener("click",()=>{
+                const userEntered=enteredOtp.getAttribute("id");
+                return enteredOtpArray;
+            })
+        });
+        function verifyOtp(){
+          let verifyReceivedOtp=sendOtp();
+          const verifyEnteredOtp=enterOtp();
+            if(verifyReceivedOtp.toString===verifyEnteredOtp.toString){
+                window.location.href = '1login.php';
+            }
+            else{
+                console.log("error");
+            }
+        }
+        function sendOtp(){
+          for (let i = 0; i < otpArray.length; i++) {
+            let randomRdx=Math.floor(Math.random()*6);
+            otpArray[i]=randomRdx;
+          }
+          return otpArray;
+        }
+       
+    </script>
+</body>
+</html>
